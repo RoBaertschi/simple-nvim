@@ -43,6 +43,13 @@ return { -- Highlight, edit, and navigate code
 			filetype = "tup",
 		}
 
+		vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
+		vim.wo.foldmethod = "expr"
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo.foldlevel = 99
+		vim.opt.foldlevelstart = -1
+		vim.opt.foldnestmax = 99
+
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
 		--
