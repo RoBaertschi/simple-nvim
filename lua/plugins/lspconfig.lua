@@ -135,6 +135,7 @@ return {
 		--   cmd = { 'zls' },
 		-- }
 
-		require("lspconfig")["ols"].setup({})
+		require("lspconfig")["ols"].setup({ capabilities = capabilities })
+		require("lspconfig")["rust_analyzer"].setup({ capabilities = capabilities })
 	end,
 }
