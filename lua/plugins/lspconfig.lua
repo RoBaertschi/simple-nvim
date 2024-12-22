@@ -84,6 +84,22 @@ return {
 		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+		local ok, mason_registry = pcall(require, "mason-registry")
+		local angularCmd
+		if ok then
+			local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
+
+			angularCmd = {
+				"ngserver",
+				"--stdio",
+				"--tsProbeLocations",
+				table.concat({ angularls_path, vim.uv.cwd() }, ","),
+				"--ngProbeLocations",
+				table.concat({ angularls_path .. "/node_modules/@angular/language-server", vim.uv.cwd() }, ","),
+			}
+		end
+
 		local servers = {
 			clangd = {},
 			lua_ls = {
@@ -99,6 +115,12 @@ return {
 						-- diagnostics = { disable = { 'missing-fields' } },
 					},
 				},
+			},
+			angularls = {
+				cmd = angularCmd,
+				on_window_config = function(new_config, new_root_dir)
+					new_config.cmd = angularCmd
+				end,
 			},
 		}
 
