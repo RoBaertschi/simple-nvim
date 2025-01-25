@@ -27,9 +27,7 @@ return {
 				},
 			},
 			defaults = {
-				file_ignore_patterns = {
-					"target", -- Rust
-				},
+				file_ignore_patterns = {},
 			},
 		})
 
