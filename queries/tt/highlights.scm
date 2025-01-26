@@ -18,6 +18,8 @@
 
 "(" @punctuation.bracket
 ")" @punctuation.bracket
+"{" @punctuation.bracket
+"}" @punctuation.bracket
 ";" @punctuation.delimiter
 
 (number) @number
