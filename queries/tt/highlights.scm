@@ -1,7 +1,7 @@
 [
  "true"
  "false"
- ] @keyword
+ ] @boolean
 
 
 "fn" @keyword.function
