@@ -42,6 +42,15 @@ return { -- Highlight, edit, and navigate code
 			},
 			filetype = "tup",
 		}
+		parser_config.tt = {
+			install_info = {
+				url = "https://github.com/RoBaertschi/tree-sitter-tt",
+				files = { "src/parser.c" },
+				branch = "main",
+				requires_generate_from_grammar = false,
+			},
+			filetype = "tt",
+		}
 
 		vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
 		vim.wo.foldmethod = "expr"

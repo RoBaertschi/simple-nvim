@@ -4,7 +4,9 @@ return {
 	priority = 1000,
 	opts = {},
 	config = function()
-		require("tokyonight").setup()
-		vim.cmd([[colorscheme tokyonight]])
+		vim.o.termguicolors = true
+		vim.o.background = "dark"
+		require("tokyonight").setup({ style = "night" })
+		vim.cmd("colorscheme tokyonight-night")
 	end,
 }
