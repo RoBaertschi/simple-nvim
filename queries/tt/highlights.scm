@@ -5,6 +5,11 @@
 
 
 "fn" @keyword.function
+[
+ "if"
+ "in"
+ "else"
+ ] @keyword.conditional
 
 [
  "=="
