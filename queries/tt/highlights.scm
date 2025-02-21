@@ -23,6 +23,7 @@
  "*"
  "/"
  "="
+ ":"
  ] @operator
 
 "(" @punctuation.bracket
@@ -34,3 +35,5 @@
 (number) @number
 
 (function_declaration name: (identifier) @function)
+(variable_reference) @variable
+(variable_declaration name: (identifier) @variable type: (identifier) @type)
