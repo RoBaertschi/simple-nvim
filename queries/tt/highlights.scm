@@ -39,3 +39,7 @@
 (variable_reference) @variable
 (variable_declaration name: (identifier) @variable type: (identifier) @type)
 (argument name: (identifier) @variable type: (identifier) @type)
+
+
+
+(comment) @comment
