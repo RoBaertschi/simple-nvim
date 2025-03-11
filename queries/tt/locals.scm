@@ -4,6 +4,7 @@
 
 (function_declaration name: (identifier) @local.definition.function (#set! definition.var.scope "parent"))
 
-(argument name: (identifier) @local.definition.var)
+(parameter name: (identifier) @local.definition.var)
 (variable_declaration name: (identifier) @local.definition.var)
 (variable_reference) @local.reference
+(function_call function_name: (identifier) @local.reference)
