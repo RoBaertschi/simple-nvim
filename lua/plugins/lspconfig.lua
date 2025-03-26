@@ -101,7 +101,6 @@ return {
 		end
 
 		local servers = {
-			clangd = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -152,6 +151,10 @@ return {
 				end,
 			},
 		})
+
+		local lspconfig = require("lspconfig")
+		lspconfig.clangd.setup({ capabilities = capabilities })
+		lspconfig.gopls.setup({ capabilities = capabilities })
 
 		-- require('lspconfig').zls.setup {
 		--   cmd = { 'zls' },
