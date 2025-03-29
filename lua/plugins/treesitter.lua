@@ -37,7 +37,7 @@ return { -- Highlight, edit, and navigate code
 			install_info = {
 				url = "https://github.com/RoBaertschi/tree-sitter-tup",
 				files = { "src/parser.c", "src/scanner.c" },
-				branch = "main",
+				branch = "new-grammar",
 				requires_generate_from_grammar = false,
 			},
 			filetype = "tup",
