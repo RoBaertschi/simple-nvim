@@ -16,6 +16,7 @@ vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" }
 vim.keymap.set("n", "<leader>sn", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch [N]eovim files" })
+vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "[S]earch Document [S]ymbols" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
