@@ -85,20 +85,20 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-		local ok, mason_registry = pcall(require, "mason-registry")
-		local angularCmd
-		if ok then
-			local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
-
-			angularCmd = {
-				"ngserver",
-				"--stdio",
-				"--tsProbeLocations",
-				table.concat({ angularls_path, vim.uv.cwd() }, ","),
-				"--ngProbeLocations",
-				table.concat({ angularls_path .. "/node_modules/@angular/language-server", vim.uv.cwd() }, ","),
-			}
-		end
+		-- local ok, mason_registry = pcall(require, "mason-registry")
+		-- local angularCmd
+		-- if ok then
+		-- 	local ok, angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
+		--
+		-- 	angularCmd = {
+		-- 		"ngserver",
+		-- 		"--stdio",
+		-- 		"--tsProbeLocations",
+		-- 		table.concat({ angularls_path, vim.uv.cwd() }, ","),
+		-- 		"--ngProbeLocations",
+		-- 		table.concat({ angularls_path .. "/node_modules/@angular/language-server", vim.uv.cwd() }, ","),
+		-- 	}
+		-- end
 
 		local servers = {
 			lua_ls = {
@@ -161,7 +161,9 @@ return {
 		-- }
 
 		require("lspconfig")["clangd"].setup({ capabilities = capabilities })
-		require("lspconfig")["ols"].setup({ capabilities = capabilities })
-		require("lspconfig")["rust_analyzer"].setup({ capabilities = capabilities })
+		-- require("lspconfig")["ols"].setup({ capabilities = capabilities })
+		-- require("lspconfig")["rust_analyzer"].setup({ capabilities = capabilities })
+		require("lspconfig")["vala_ls"].setup({ capabilities = capabilities })
+		require("lspconfig")["templ"].setup({ capabilities = capabilities })
 	end,
 }
