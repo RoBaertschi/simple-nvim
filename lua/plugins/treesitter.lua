@@ -89,7 +89,7 @@ return { -- Highlight, edit, and navigate code
 						---@type async.TaskFun
 						local installing =
 							require("nvim-treesitter.install").install(vim.treesitter.language.get_lang(args.match))
-						print(args.match, vim.treesitter.language.get_lang(args.match))
+						-- print(args.match, vim.treesitter.language.get_lang(args.match))
 						ok, _ = pcall(a.await, installing)
 						if ok then
 							vim.treesitter.start(args.buf)
