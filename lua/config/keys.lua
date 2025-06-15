@@ -21,6 +21,19 @@ vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "[S]ear
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+local file = io.popen("odin root", "r")
+if file ~= nil then
+	local odin_root = file:read("*a")
+	file:close()
+	vim.keymap.set("n", "<leader>sof", function()
+		builtin.find_files({ cwd = odin_root, prompt_title = "Search Odin Files" })
+	end, { desc = "[S]earch [O]din [F]iles" })
+	vim.keymap.set("n", "<leader>sog", function()
+		builtin.live_grep({ cwd = odin_root, prompt_title = "Grep Odin Files" })
+	end, { desc = "[S]earch [O]din [G]rep" })
+end
+
 -- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 -- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 -- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
