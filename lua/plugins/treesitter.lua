@@ -34,7 +34,7 @@ return { -- Highlight, edit, and navigate code
 			"vimdoc",
 		}
 
-		local installed = require("nvim-treesitter.config").get_installed()
+		local installed = require("nvim-treesitter").get_installed()
 		local install = {}
 		for _, value in ipairs(to_install) do
 			for _, found in ipairs(installed) do
