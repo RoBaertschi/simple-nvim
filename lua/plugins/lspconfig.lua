@@ -161,6 +161,7 @@ return {
 		-- }
 
 		require("lspconfig")["clangd"].setup({ capabilities = capabilities })
+		require("lspconfig")["sourcekit"].setup({ capabilities = capabilities })
 		-- require("lspconfig")["ols"].setup({ capabilities = capabilities })
 		-- require("lspconfig")["rust_analyzer"].setup({ capabilities = capabilities })
 		require("lspconfig")["vala_ls"].setup({ capabilities = capabilities })
