@@ -5,6 +5,7 @@ require("which-key").add({
 	{ "<leader>t", group = "[T]oggle" },
 	{ "<leader>d", group = "[D]ocument" },
 	{ "<leader>w", group = "[W]orkspace" },
+	{ "<leader>o", group = "[O]verseer" },
 })
 
 local builtin = require("telescope.builtin")
@@ -38,3 +39,16 @@ end
 -- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 -- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 -- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.api.nvim_create_user_command("OverseerRestartLast", function()
+	local overseer = require("overseer")
+	local tasks = overseer.list_tasks({ recent_first = true })
+	if vim.tbl_isempty(tasks) then
+		vim.notify("No tasks found", vim.log.levels.WARN)
+	else
+		overseer.run_action(tasks[1], "restart")
+	end
+end, {})
+vim.keymap.set("n", "<leader>or", "<ESC>:OverseerRun<CR>", { desc = "[O]verseer [R]un" })
+vim.keymap.set("n", "<leader>orl", "<ESC>:OverseerRestartLast<CR>", { desc = "[O]verseer [R]un [L]ast" })
+vim.keymap.set("n", "<leader>b", "<ESC>:OverseerRestartLast<CR>", { desc = "Overseer Run Last" })
