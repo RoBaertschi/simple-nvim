@@ -60,3 +60,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.o.termguicolors = true
+
+vim.o.guifont = "JetBrainsMono NF"
+
+if vim.g.neovide then
+	vim.g.neovide_cursor_animation_length = 0
+end
